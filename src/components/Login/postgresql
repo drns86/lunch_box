@@ -1,0 +1,23 @@
+CREATE TABLE menu (
+	menu_name TEXT NOT NULL,
+	menu_day TEXT NOT NULL,
+	description TEXT NOT NULL
+);
+
+CREATE TABLE ordered (
+	order_id SERIAL NOT NULL PRIMARY KEY,
+	user_id TEXT,
+	menu_name TEXT,
+	quantity INT NOT NULL,
+	address TEXT,
+	what_time TEXT,
+	etc TEXT,
+	order_time TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE TABLE person (
+	user_id TEXT NOT NULL PRIMARY KEY,
+	password TEXT NOT NULL,
+	default_address TEXT,
+	default_request TEXT
+);
